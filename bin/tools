@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+/**
+ * bin/tools
+ *
+ * @project vkcm
+ * @binary tools
+ * @summary Application common decorators
+ *
+ */
+'use strict';
+
+const HELPER = {
+  version: 0.2
+};
+
+let shell = (function() {
+
+  this.log = require('debug')('tools');
+
+  this.init = function() {
+    this.debug(``)
+
+    process.on('SIGINT', function() {
+      console.log('Got a SIGINT. Goodbye!');
+      process.exit(0);
+    });
+  };
+});
